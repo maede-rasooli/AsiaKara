@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Asia Kara</title>
+
+  <script>
+    // configure Tailwind (Play CDN)
+    tailwind = {
+      config: {
+        darkMode: 'class',
+        theme: {
+          extend: {}
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Flowbite CSS/JS requires Tailwind. We'll load JS at bottom -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous" />
+
+  <!-- small CSS for brand variable and utility fixes -->
+  <style>
+    :root{
+      --brand-light: #04c9cf; /* slightly darker on white (your choice 2) */
+      --brand-dark:  #05e3e8; /* original brand for dark mode */
+      --brand: var(--brand-light);
+    }
+    .dark { --brand: var(--brand-dark); }
+
+    /* small helpers */
+    .brand-text { color: var(--brand); }
+    .brand-border { border-color: var(--brand); }
+    .brand-bg { background-color: var(--brand); }
+    .brand-bg-20 { background-color: rgba(5, 227, 232, 0.12); } /* fallback */
+    /* ensure images round nicely */
+    img.rounded-2xl { border-radius: 1rem; }
+    /* preserve carousel image zoom overflow */
+    .carousel-img { transition: transform 0.7s ease-in-out; }
+  </style>
+
+  <!-- favicon (keep your path) -->
+  <link rel="icon" type="image/png" href="Asia_Kara_Industrial_Tools_Logo_Final_1-removebg-preview.png" />
+</head>
+<body class="bg-neutral-100 dark:bg-neutral-900 text-neutral-900 dark:text-gray-200 antialiased selection:bg-[#05e3e8]/30">
+
+<!-- NAVBAR -->
+<nav class="bg-neutral-900 fixed w-full z-50 top-0 start-0 border-b border-neutral-700 font-medium">
+  <div class="max-w-screen-7xl flex flex-wrap items-center justify-between mx-auto p-4">
+
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="Asia_Kara_Industrial_Tools_Logo_Final_1-removebg-preview.png" class="h-10" alt="Logo" />
+      <span class="text-xl text-[#05e3e8] font-semibold whitespace-nowrap">Asia Kara</span>
+    </a>
+
+    <!-- Right Section -->
+    <div class="flex items-center md:order-2 space-x-2">
+
+      <!-- Language Dropdown -->
+      <div class="relative">
+        <button id="lang-btn" class="flex items-center text-gray-300 hover:text-[#05e3e8] px-3 py-2 text-sm">
+          🌐 English (US)
+          <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
+        </button>
+
+        <div id="lang-menu" class="hidden absolute right-0 mt-2 w-40 bg-neutral-800 border border-neutral-700 rounded shadow-lg">
+          <a class="block px-4 py-2 text-gray-200 hover:bg-neutral-700" data-lang="en">🇺🇸 English (US)</a>
+          <a class="block px-4 py-2 text-gray-200 hover:bg-neutral-700" data-lang="fa">فارسی</a>
+        </div>
+      </div>
+
+      <!-- Hamburger -->
+      <button id="hamburger-toggle" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-gray-300 rounded md:hidden hover:bg-neutral-800">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="hidden w-full md:hidden mt-4">
+      <ul class="flex flex-col space-y-2 bg-neutral-900 p-4 rounded border border-neutral-700 text-gray-300">
+        <li><a href="index.html" class="hover:text-[#05e3e8]">Home</a></li>
+        <li><a href="about.html" class="text-[#05e3e8] font-semibold">About</a></li>
+        <li><a href="#" class="hover:text-[#05e3e8]">Services</a></li>
+        <li><a href="products.html" class="hover:text-[#05e3e8]">Products</a></li>
+        <li><a href="contact.html" class="hover:text-[#05e3e8]">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- DESKTOP MENU -->
+    <ul class="hidden md:flex md:space-x-8 font-medium text-gray-300">
+      <li><a href="index.html" class="hover:text-[#05e3e8]">Home</a></li>
+      <li><a href="about.html" class="hover:text-[#05e3e8]">About</a></li>
+      <li><a href="#" class="hover:text-[#05e3e8]">Services</a></li>
+        <li><a href="products.html" class="hover:text-[#05e3e8]">Products</a></li>
+      <li><a href="contact.html" class="text-[#05e3e8] font-semibold">Contact</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<section id="contact" class="w-full py-16 bg-black/20 backdrop-blur-sm rounded-3xl px-6 pt-[120px]">
+  <div class="max-w-3xl mx-auto text-white">
+    <h2 class="text-3xl font-bold mb-6 text-[#05e3e8]">Contact Us</h2>
+    <p class="mb-8 opacity-90">
+      Fill in your name and message below, and we'll get back to you as soon as possible.
+    </p>
+
+    <!-- Contact Form -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+      <!-- Name Input -->
+      <div>
+        <label for="name" class="block mb-2 font-medium">Your Name</label>
+        <input 
+          type="text" 
+          name="name" 
+          id="name" 
+          required
+          placeholder="Enter your name"
+          class="w-full rounded-xl border border-white/20 bg-black/10 backdrop-blur-sm p-3 text-white placeholder-white/60 focus:border-[#05e3e8] focus:outline-none transition-colors duration-300"
+        >
+      </div>
+
+      <!-- Message Input -->
+      <div>
+        <label for="message" class="block mb-2 font-medium">Your Message</label>
+        <textarea 
+          name="message" 
+          id="message" 
+          rows="5" 
+          required
+          placeholder="Type your message..."
+          class="w-full rounded-xl border border-white/20 bg-black/10 backdrop-blur-sm p-3 text-white placeholder-white/60 focus:border-[#05e3e8] focus:outline-none transition-colors duration-300"
+        ></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="bg-[#05e3e8] hover:bg-[#3ef0f3] text-black font-bold px-6 py-3 rounded-xl transition-all duration-300">
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+
+
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 pt-[120px]">
+    <!-- Quick Navigation -->
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+      <ul class="space-y-2">
+        <li><a href="index.html" class="hover:text-[#05e3e8]">Home</a></li>
+        <li><a href="about.html" class="hover:text-[#05e3e8]">About Us</a></li>
+        <li><a href="#" class="hover:text-[#05e3e8]">Services</a></li>
+        <li><a href="products.html" class="hover:text-[#05e3e8]">Products</a></li>
+        <li><a href="contact.html" class="hover:text-[#05e3e8]">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Contact Info -->
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Contact Info</h3>
+      <p class="flex items-center gap-2"><i class="fa-solid fa-phone"></i> (+93) 797441003</p>
+      <p class="flex items-center gap-2"><i class="fa-solid fa-envelope"></i> asiakara2010gmail.com</p>
+      <p class="flex items-center gap-2"><i class="fa-solid fa-envelope"></i> f.rasooli2010@gmail.com</p>
+      <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot"></i> Herat, Afghanistan</p>
+    </div>
+
+    <!-- Working Hours -->
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Working Hours</h3>
+      <p>Saturday – Thursday: 8:00 AM – 6:00 PM</p>
+      <p>Friday: Closed</p>
+
+      <h3 class="text-xl font-semibold text-white mt-6 mb-2">Social Media</h3>
+      <a href="#" class="flex items-center gap-2 hover:text-[#05e3e8]">
+        <i class="fa-brands fa-whatsapp text-2xl"></i> WhatsApp
+      </a>
+    </div>
+    <!-- Customer Support -->
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Customer Support</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-[#05e3e8]">Warranty Support</a></li>
+        <li><a href="#" class="hover:text-[#05e3e8]">Return Policy</a></li>
+        <li><a href="#" class="hover:text-[#05e3e8]">Technical Assistance</a></li>
+        <li><a href="#" class="hover:text-[#05e3e8]">Download Manuals</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  </div>
+<!-- MINI MAP -->
+<div class="w-full bg-neutral-900 flex justify-center py-8 px-4">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d855.2444368586162!2d62.1938000557621!3d34.35814053961168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDIxJzI5LjkiTiA2MsKwMTEnMzkuMiJF!5e0!3m2!1sen!2s!4v1760172602873!5m2!1sen!2s"
+    width="1000" 
+    height="200" 
+    class="rounded-lg w-full max-w-5xl border-0"
+    allowfullscreen 
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+<!-- FOOTER -->
+<footer class="bg-neutral-900 text-gray-300 py-16 border-t border-neutral-700 text-center">
+
+    <!-- Company Slogan -->
+    <p class="text-lg font-medium mb-2 text-[#05e3e8]">
+      “Precision Tools for a Stronger Tomorrow.”
+    </p>
+
+    <!-- Powered By -->
+    <p class="text-sm text-gray-400">
+      Powered by <span class="text-[#05e3e8]">Asia Kara Web Team</span>
+    </p>
+
+    <!-- Copyright -->
+    <p class="text-sm mt-3 text-gray-500">
+      © 2025 Asia Kara Industrial Tools. All Rights Reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<!-- SCRIPTS -->
+ <script>
+document.getElementById("hamburger-toggle").addEventListener("click", () => {
+  document.getElementById("mobile-menu").classList.toggle("hidden");
+});
+</script>
+
+
+<!-- Flowbite (carousels + dropdowns + collapse) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+<!-- Your JS -->
+<script src="kara.js"></script>
+</body>
+</html>

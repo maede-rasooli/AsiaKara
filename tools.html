@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Asia Kara</title>
+
+  <script>
+    // configure Tailwind (Play CDN)
+    tailwind = {
+      config: {
+        darkMode: 'class',
+        theme: {
+          extend: {}
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Flowbite CSS/JS requires Tailwind. We'll load JS at bottom -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous" />
+<!-- favicon (keep your path) -->
+  <link rel="icon" type="image/png" href="Asia_Kara_Industrial_Tools_Logo_Final_1-removebg-preview.png" />
+</head>
+<body class="bg-neutral-100 dark:bg-neutral-900 text-neutral-900 dark:text-gray-200 antialiased selection:bg-[#05e3e8]/30">
+
+<!-- NAVBAR -->
+<nav class="bg-neutral-900 fixed w-full z-50 top-0 start-0 border-b border-neutral-700 font-medium">
+  <div class="max-w-screen-7xl flex flex-wrap items-center justify-between mx-auto p-4">
+
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="Asia_Kara_Industrial_Tools_Logo_Final_1-removebg-preview.png" class="h-10" alt="Logo" />
+      <span class="text-xl text-[#05e3e8] font-semibold whitespace-nowrap">Asia Kara</span>
+    </a>
+
+    <!-- Right Section -->
+    <div class="flex items-center md:order-2 space-x-2">
+
+      <!-- Language Dropdown -->
+      <div class="relative">
+        <button id="lang-btn" class="flex items-center text-gray-300 hover:text-[#05e3e8] px-3 py-2 text-sm">
+          🌐 English (US)
+          <i class="fa-solid fa-chevron-down ml-1 text-xs"></i>
+        </button>
+
+        <div id="lang-menu" class="hidden absolute right-0 mt-2 w-40 bg-neutral-800 border border-neutral-700 rounded shadow-lg">
+          <a class="block px-4 py-2 text-gray-200 hover:bg-neutral-700" data-lang="en">🇺🇸 English (US)</a>
+          <a class="block px-4 py-2 text-gray-200 hover:bg-neutral-700" data-lang="fa">فارسی</a>
+        </div>
+      </div>
+
+      <!-- Hamburger -->
+      <button id="hamburger-toggle" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-gray-300 rounded md:hidden hover:bg-neutral-800">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="hidden w-full md:hidden mt-4 z-50 ">
+      <ul class="flex flex-col space-y-2 bg-neutral-900 p-4 rounded border border-neutral-700 text-gray-300">
+        <li><a href="index.html" class="nav-link hover:text-[#05e3e8]">Home</a></li>
+        <li><a href="about.html" class="nav-link hover:text-[#05e3e8]">About</a></li>
+        <li><a href="#" class="nav-link hover:text-[#05e3e8]">Services</a></li>
+        <li><a href="products.html" class="text-[#05e3e8] font-semibold">Products</a></li>
+        <li><a href="contact.html" class="nav-link hover:text-[#05e3e8]">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- DESKTOP MENU -->
+    <ul class="hidden md:flex md:space-x-8 font-medium text-gray-300">
+      <li><a href="index.html" class="hover:text-[#05e3e8]">Home</a></li>
+      <li><a href="about.html" class="hover:text-[#05e3e8]">About</a></li>
+      <li><a href="#" class="hover:text-[#05e3e8]">Services</a></li>
+        <li><a href="products.html" class="text-[#05e3e8] font-semibold">Products</a></li>
+      <li><a href="contact.html" class="hover:text-[#05e3e8]">Contact</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<!-- Tools page -->
+<div class="pt-[120px] pb-[100px] flex max-w-7xl mx-auto gap-8 px-6">
+
+  <!-- Mobile Toggle (Top Sticky) -->
+ <div class="md:hidden fixed top-20 left-0 w-full px-6 pt-2 z-40">
+    <button id="tocBtn"
+  class="z-9999 w-full bg-[#05e3e8] text-black py-3 rounded-xl font-semibold shadow-lg">
+  Contents
+</button>
+
+
+    <!-- Mobile Dropdown TOC -->
+    <nav id="mobileToc"
+  class="hidden z-9999 mt-3 bg-black/70 backdrop-blur-lg border border-white/20 
+         rounded-2xl p-5 shadow-xl">
+
+
+      <h2 class="text-white text-xl font-bold mb-3">Contents</h2>
+      <ul class="flex flex-col gap-3">
+        <li><a href="#welding-machinery" class="text-[#05e3e8] hover:text-[#7FFFFF]">Welding Machinery</a></li>
+        <li><a href="#welding-wire" class="text-[#05e3e8] hover:text-[#7FFFFF]">Welding Wire</a></li>
+        <li><a href="#spot-welding-machine" class="text-[#05e3e8] hover:text-[#7FFFFF]">Spot Welding Machine</a></li>
+        <li><a href="#drill" class="text-[#05e3e8] hover:text-[#7FFFFF]">Drill</a></li>
+        <li><a href="#cutting-machine" class="text-[#05e3e8] hover:text-[#7FFFFF]">Cutting Machine</a></li>
+        <li><a href="#welding-accessories" class="text-[#05e3e8] hover:text-[#7FFFFF]">Welding Accessories</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Desktop Sidebar TOC -->
+  <nav class="w-64 h-[calc(100vh-120px)] sticky top-[120px] 
+              bg-black/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 
+              overflow-y-auto hidden md:block">
+
+    <h2 class="text-white text-xl font-bold mb-4">Contents</h2>
+    <ul class="flex flex-col gap-3">
+      <li><a href="#welding-machinery" class="text-[#05e3e8] hover:text-[#7FFFFF]">Welding Machinery</a></li>
+      <li><a href="#welding-wire" class="text-[#05e3e8] hover:text-[#7FFFFF]">Welding Wire</a></li>
+      <li><a href="#spot-welding-machine" class="text-[#05e3e8] hover:text-[#7FFFFF]">Spot Welding Machine</a></li>
+      <li><a href="#drill" class="text-[#05e3e8] hover:text-[#7FFFFF]">Drill</a></li>
+      <li><a href="#cutting-machine" class="text-[#05e3e8] hover:text-[#7FFFFF]">Cutting Machine</a></li>
+      <li><a href="#welding-accessories" class="text-[#05e3e8] hover:text-[#7FFFFF]">Welding Accessories</a></li>
+    </ul>
+  </nav>
+
+
+
+  <!-- Main Content -->
+<div class="flex-1 space-y-14 pt-10 relative z-30">
+
+    <!-- Welding Machinery Section -->
+    <section id="welding-machinery" class="space-y-10">
+      <h2 class="text-[#05e3e8] text-3xl font-bold mb-6">Welding Machinery</h2>
+
+      <!-- Card 1 -->
+      <div class="border border-white/20 rounded-3xl p-8 backdrop-blur-sm flex flex-col md:flex-row items-center gap-10 group transition-all duration-500">
+        <div class="w-full md:w-1/2 flex justify-center">
+          <img src="1 (1).png" alt="Welding Machine 1" class="rounded-3xl w-64 h-64 object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+        </div>
+        <div class="w-full md:w-1/2 text-white leading-relaxed">
+          <p class="text-lg opacity-90">Industrial tools are designed to deliver precision, durability, and consistent performance in every task...</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="border border-white/20 rounded-3xl p-8 backdrop-blur-sm flex flex-col md:flex-row items-center gap-10 group transition-all duration-500">
+        <div class="w-full md:w-1/2 flex justify-center">
+          <img src="1 (1).png" alt="Welding Machine 2" class="rounded-3xl w-64 h-64 object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+        </div>
+        <div class="w-full md:w-1/2 text-white leading-relaxed">
+          <p class="text-lg opacity-90">Industrial tools are designed to deliver precision, durability, and consistent performance in every task...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Welding Wire Section -->
+    <section id="welding-wire" class="space-y-10">
+      <h2 class="text-[#05e3e8] text-3xl font-bold mb-6">Welding Wire</h2>
+      <div class="border border-white/20 rounded-3xl p-8 backdrop-blur-sm flex flex-col md:flex-row items-center gap-10 group transition-all duration-500">
+        <div class="w-full md:w-1/2 flex justify-center">
+          <img src="1 (1).png" alt="Welding Wire" class="rounded-3xl w-64 h-64 object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+        </div>
+        <div class="w-full md:w-1/2 text-white leading-relaxed">
+          <p class="text-lg opacity-90">Details about welding wire...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spot Welding Machine Section -->
+    <section id="spot-welding-machine" class="space-y-10">
+      <h2 class="text-[#05e3e8] text-3xl font-bold mb-6">Spot Welding Machine</h2>
+      <div class="border border-white/20 rounded-3xl p-8 backdrop-blur-sm flex flex-col md:flex-row items-center gap-10 group transition-all duration-500">
+        <div class="w-full md:w-1/2 flex justify-center">
+          <img src="1 (1).png" alt="Spot Welding" class="rounded-3xl w-64 h-64 object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+        </div>
+        <div class="w-full md:w-1/2 text-white leading-relaxed">
+          <p class="text-lg opacity-90">Details about spot welding machines...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Drill Section -->
+    <section id="drill" class="space-y-10">
+      <h2 class="text-[#05e3e8] text-3xl font-bold mb-6">Drill</h2>
+      <div class="border border-white/20 rounded-3xl p-8 backdrop-blur-sm flex flex-col md:flex-row items-center gap-10 group transition-all duration-500">
+        <div class="w-full md:w-1/2 flex justify-center">
+          <img src="1 (1).png" alt="Drill" class="rounded-3xl w-64 h-64 object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+        </div>
+        <div class="w-full md:w-1/2 text-white leading-relaxed">
+          <p class="text-lg opacity-90">Details about drills...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cutting Machine Section -->
+    <section id="cutting-machine" class="space-y-10">
+      <h2 class="text-[#05e3e8] text-3xl font-bold mb-6">Cutting Machine</h2>
+      <div class="border border-white/20 rounded-3xl p-8 backdrop-blur-sm flex flex-col md:flex-row items-center gap-10 group transition-all duration-500">
+        <div class="w-full md:w-1/2 flex justify-center">
+          <img src="1 (1).png" alt="Cutting Machine" class="rounded-3xl w-64 h-64 object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+        </div>
+        <div class="w-full md:w-1/2 text-white leading-relaxed">
+          <p class="text-lg opacity-90">Details about cutting machines...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Welding Accessories Section -->
+    <section id="welding-accessories" class="space-y-10">
+      <h2 class="text-[#05e3e8] text-3xl font-bold mb-6">Welding Accessories</h2>
+      <div class="border border-white/20 rounded-3xl p-8 backdrop-blur-sm flex flex-col md:flex-row items-center gap-10 group transition-all duration-500">
+        <div class="w-full md:w-1/2 flex justify-center">
+          <img src="1 (1).png" alt="Welding Accessories" class="rounded-3xl w-64 h-64 object-cover transition-transform duration-700 ease-out group-hover:scale-110">
+        </div>
+        <div class="w-full md:w-1/2 text-white leading-relaxed">
+          <p class="text-lg opacity-90">Details about welding accessories...</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+
+
+<!-- FOOTER -->
+<footer class="bg-neutral-900 text-gray-300 py-16 border-t border-neutral-700">
+
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+    
+    <!-- Quick Navigation -->
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+      <ul class="space-y-2">
+       <li><a href="index.html" class="hover:text-[#05e3e8]">Home</a></li>
+        <li><a href="about.html" class="hover:text-[#05e3e8]">About Us</a></li>
+        <li><a href="#" class="hover:text-[#05e3e8]">Services</a></li>
+        <li><a href="products.html" class="hover:text-[#05e3e8]">Products</a></li>
+        <li><a href="contact.html" class="hover:text-[#05e3e8]">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Contact Info</h3>
+      <p class="flex items-center gap-2"><i class="fa-solid fa-phone"></i> (+93) 797441003</p>
+      <p class="flex items-center gap-2"><i class="fa-solid fa-envelope"></i> asiakara2010gmail.com</p>
+      <p class="flex items-center gap-2"><i class="fa-solid fa-envelope"></i> f.rasooli2010@gmail.com</p>
+      <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot"></i> Herat, Afghanistan</p>
+    </div>
+
+    <!-- Working Hours -->
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Working Hours</h3>
+      <p>Saturday – Thursday: 8:00 AM – 6:00 PM</p>
+      <p>Friday: Closed</p>
+
+      <h3 class="text-xl font-semibold text-white mt-6 mb-2">Social Media</h3>
+      <a href="#" class="flex items-center gap-2 hover:text-[#05e3e8]">
+        <i class="fa-brands fa-whatsapp text-2xl"></i> WhatsApp
+      </a>
+    </div>
+
+    <!-- Customer Support -->
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Customer Support</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-[#05e3e8]">Warranty Support</a></li>
+        <li><a href="#" class="hover:text-[#05e3e8]">Return Policy</a></li>
+        <li><a href="#" class="hover:text-[#05e3e8]">Technical Assistance</a></li>
+        <li><a href="#" class="hover:text-[#05e3e8]">Download Manuals</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Divider -->
+  <div class="border-t border-neutral-700 mt-12 pt-6 text-center">
+
+    <!-- Company Slogan -->
+    <p class="text-lg font-medium mb-2 text-[#05e3e8]">
+      “Precision Tools for a Stronger Tomorrow.”
+    </p>
+
+    <!-- Powered By -->
+    <p class="text-sm text-gray-400">
+      Powered by <span class="text-[#05e3e8]">Asia Kara Web Team</span>
+    </p>
+
+    <!-- Copyright -->
+    <p class="text-sm mt-3 text-gray-500">
+      © 2025 Asia Kara Industrial Tools. All Rights Reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<!-- SCRIPTS -->
+ <script>
+document.getElementById("hamburger-toggle").addEventListener("click", () => {
+  document.getElementById("mobile-menu").classList.toggle("hidden");
+});
+</script>
+<script>
+  const tocBtn = document.getElementById("tocBtn");
+  const mobileToc = document.getElementById("mobileToc");
+
+  tocBtn.addEventListener("click", () => {
+    mobileToc.classList.toggle("hidden");
+  });
+</script>
+
+
+
+<!-- Flowbite (carousels + dropdowns + collapse) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+<!-- Your JS -->
+<script src="kara.js"></script>
+</body>
+</html>
